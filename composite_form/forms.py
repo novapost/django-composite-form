@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.html import mark_safe
 
 
 class CompositeForm(forms.Form):
@@ -35,7 +36,7 @@ class CompositeForm(forms.Form):
             self._form_instances[form] = form(data, files, *args, **kwargs)
 
     def __unicode__(self):
-        raise NotImplementedError("Sorry, not implemented yet")
+        return mark_safe(u''.join([unicode(form) for form in self.forms]))
 
     def get_form_instance(self, form):
         """
