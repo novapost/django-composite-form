@@ -6,3 +6,4 @@ develop-eggs
 parts
 dist
 *.egg-info
+.*.swp
